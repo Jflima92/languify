@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.mainController">
+   <children>
+      <Button layoutX="255.0" layoutY="322.0" mnemonicParsing="false" text="Upload File" />
+      <TextField layoutX="21.0" layoutY="322.0" prefHeight="26.0" prefWidth="224.0" />
+      <Text layoutX="21.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Languify - Language Detection Tool" />
+      <TextArea fx:id="textInput" layoutX="21.0" layoutY="100.0" prefHeight="200.0" prefWidth="224.0" />
+      <Button fx:id="inputButton" layoutX="253.0" layoutY="274.0" mnemonicParsing="false" text="Detect from Text" />
+      <Text layoutX="404.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Results:" />
+      <Text layoutX="404.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Language" />
+      <MenuBar prefHeight="29.0" prefWidth="179.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Options">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Train Application" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</Pane>
