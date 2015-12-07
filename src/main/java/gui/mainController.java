@@ -60,19 +60,31 @@ public class mainController implements Initializable {
         LinkedHashMap db = lang.combineGramsData(false, "english");
         LinkedHashMap db2 = lang.combineGramsData(false, "spanish");
         LinkedHashMap db3 = lang.combineGramsData(false, "french");
+        LinkedHashMap db4 = lang.combineGramsData(false, "hungarian");
+        LinkedHashMap db5 = lang.combineGramsData(false, "italian");
+        LinkedHashMap db6 = lang.combineGramsData(false, "portuguese");
 
         int rankingEn = lang.compareRankings(local, db);
         int rankingEs = lang.compareRankings(local, db2);
         int rankingFr = lang.compareRankings(local, db3);
+        int rankingHu = lang.compareRankings(local, db4);
+        int rankingIt = lang.compareRankings(local, db5);
+        int rankingPt = lang.compareRankings(local, db6);
 
         HashMap<String, Integer> rankings = new HashMap<>();
         rankings.put("English", rankingEn);
         rankings.put("Spanish", rankingEs);
-//        rankings.put("French", rankingFr);
+        rankings.put("French", rankingFr);
+        rankings.put("Hungarian", rankingHu);
+        rankings.put("Italian", rankingIt);
+        rankings.put("Portuguese", rankingPt);
 
         System.out.println("English: " + rankingEn);
         System.out.println("Spanish: " + rankingEs);
         System.out.println("French: " + rankingFr);
+        System.out.println("Hungarian: " + rankingHu);
+        System.out.println("Italian: " + rankingIt);
+        System.out.println("Portuguese: " + rankingPt);
 
         ArrayList<String> ranks = new ArrayList<>(lang.sortByValues(rankings).keySet());
         String lang = ranks.get(ranks.size()-1);
@@ -80,15 +92,6 @@ public class mainController implements Initializable {
         System.out.println(lang);
         language.setText(lang);
 
-        /*if(rankingEn < rankingEs) {
-            System.out.println("English");
-            language.setText("English");
-        }
-
-        else {
-            System.out.println("Spanish");
-            language.setText("Spanish");
-        }*/
 
     }
 
@@ -97,7 +100,7 @@ public class mainController implements Initializable {
 
         File folder = new File(classLoader.getResource("training_data").getPath());
         File[] listOfFiles = folder.listFiles();
-        System.out.println(listOfFiles.length);
+//        System.out.println(listOfFiles.length);
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
@@ -106,7 +109,7 @@ public class mainController implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                System.out.println("File " + listOfFiles[i].getName());
+//                System.out.println("File " + listOfFiles[i].getName());
             }
         }
     }
@@ -115,11 +118,11 @@ public class mainController implements Initializable {
 
         File folder = new File(classLoader.getResource("training_data").getPath());
         File[] listOfFiles = folder.listFiles();
-        System.out.println(listOfFiles.length);
+//        System.out.println(listOfFiles.length);
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         File selectedFile = fileChooser.showOpenDialog(mainStage);
-        System.out.println(selectedFile.getName());
+//        System.out.println(selectedFile.getName());
         try {
             lang.documentTraining("training_data/"+selectedFile.getName());
         } catch (IOException e) {

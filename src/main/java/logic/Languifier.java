@@ -169,10 +169,12 @@ public class Languifier {
         ClassLoader classLoader = getClass().getClassLoader();
 
         byte[] encoded = Files.readAllBytes(Paths.get(classLoader.getResource(pathToFile).getPath())); //TODO change language depending on file
-        mongoCharacterNGramGenerator(2, new String(encoded), "french");
-        mongoCharacterNGramGenerator(3, new String(encoded), "french");
-        mongoCharacterNGramGenerator(4, new String(encoded), "french");
-        mongoCharacterNGramGenerator(5, new String(encoded), "french");
+        String lan = pathToFile.split("/")[1].split("_")[0];
+        System.out.println(lan);
+        mongoCharacterNGramGenerator(2, new String(encoded), lan);
+        mongoCharacterNGramGenerator(3, new String(encoded), lan);
+        mongoCharacterNGramGenerator(4, new String(encoded), lan);
+        mongoCharacterNGramGenerator(5, new String(encoded), lan);
 
     }
 
