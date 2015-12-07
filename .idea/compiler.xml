@@ -24,8 +24,16 @@
         <processorPath useClasspath="true" />
         <module name="LanguifyMave" />
       </profile>
+      <profile default="false" name="Annotation profile for Languify" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="Languify" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Languify" target="1.8" />
       <module name="LanguifyMave" target="1.8" />
     </bytecodeTargetLevel>
   </component>
