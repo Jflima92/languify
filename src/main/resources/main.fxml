@@ -9,14 +9,14 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.mainController">
    <children>
-      <Button layoutX="255.0" layoutY="322.0" mnemonicParsing="false" text="Upload File" />
-      <TextField layoutX="21.0" layoutY="322.0" prefHeight="26.0" prefWidth="224.0" />
+      <Button fx:id="uploadButton" layoutX="255.0" layoutY="322.0" mnemonicParsing="false" text="Upload File" />
+      <TextField fx:id="fileName" layoutX="21.0" layoutY="322.0" prefHeight="26.0" prefWidth="224.0" />
       <Text layoutX="21.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Languify - Language Detection Tool" />
       <TextArea fx:id="textInput" layoutX="21.0" layoutY="100.0" prefHeight="200.0" prefWidth="224.0" />
       <Button fx:id="inputButton" layoutX="253.0" layoutY="274.0" mnemonicParsing="false" text="Detect from Text" />
-      <Text layoutX="349.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Results:" />
-      <Text layoutX="349.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Language:" />
-      <MenuBar prefHeight="29.0" prefWidth="179.0">
+      <Text layoutX="274.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Results:" />
+      <Text layoutX="274.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Language:" />
+      <MenuBar prefHeight="29.0" prefWidth="600.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -36,6 +36,10 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextField fx:id="language" editable="false" layoutX="423.0" layoutY="178.0" prefHeight="26.0" prefWidth="138.0" />
+      <TextField fx:id="language" editable="false" layoutX="368.0" layoutY="178.0" prefHeight="26.0" prefWidth="138.0" />
+      <ProgressIndicator fx:id="progressInd" layoutX="482.0" layoutY="97.0" progress="0.0" />
+      <ProgressBar fx:id="progressBar" layoutX="268.0" layoutY="100.0" prefWidth="200.0" progress="0.0" />
+      <Text fx:id="elapsed" layoutX="274.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elapsed Time:" />
+      <TextField fx:id="elapsedTime" editable="false" layoutX="368.0" layoutY="205.0" prefHeight="26.0" prefWidth="138.0" />
    </children>
 </Pane>

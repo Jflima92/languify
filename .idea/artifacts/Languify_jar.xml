@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Languify:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Languify_jar</output-path>
+    <root id="archive" name="Languify.jar">
+      <element id="module-output" name="Languify" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-core/3.0.4/mongodb-driver-core-3.0.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver/3.0.4/mongodb-driver-3.0.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/bson/3.0.4/bson-3.0.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

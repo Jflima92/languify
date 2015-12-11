@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.*;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
@@ -168,7 +169,7 @@ public class Languifier {
     public void documentTraining(String pathToFile) throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
 
-        byte[] encoded = Files.readAllBytes(Paths.get(classLoader.getResource(pathToFile).getPath())); //TODO change language depending on file
+        byte[] encoded = Files.readAllBytes(Paths.get(classLoader.getResource(pathToFile).getPath()));
         String lan = pathToFile.split("/")[1].split("_")[0];
         System.out.println(lan);
         mongoCharacterNGramGenerator(2, new String(encoded), lan);
@@ -228,8 +229,12 @@ public class Languifier {
 
     }
 
-    public LinkedHashMap combineGramsData(boolean isLocal, String msg) {
+
+
+    public LinkedHashMap combineGramsData(boolean isLocal, String msg){
         LinkedHashMap combined = new LinkedHashMap<String, Integer>() {};
+        ExecutorService executor = Executors.newFixedThreadPool(5);
+
 
         if(isLocal) {
             combined.putAll(localCharacterNGramGenerator(2, msg));
@@ -239,14 +244,33 @@ public class Languifier {
         }
         else
         {
+            /*ConcurrentHashMap c = new ConcurrentHashMap(combined);
+            for(int i = 2; i < 6; i++){
+                Future<Map> fut = executor.submit(new worker(i, msg, this));
+                try {
+                    System.out.println("SIZE: " + fut.get().size());
+                    c.putAll(fut.get());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("AQUI");
+            }*/
             combined.putAll(retrieveNGramsfromDB(2, msg));
             combined.putAll(retrieveNGramsfromDB(3, msg));
             combined.putAll(retrieveNGramsfromDB(4, msg));
             combined.putAll(retrieveNGramsfromDB(5, msg));
+
+            return combined;
         }
 
         return combined;
     }
+
+
+
+
 
     public int compareRankings(LinkedHashMap local, LinkedHashMap db){
         ArrayList<String> localGrams = new ArrayList<>(sortByValues(local).keySet());
