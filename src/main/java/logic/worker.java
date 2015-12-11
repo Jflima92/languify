@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class worker implements Callable {
     LinkedHashMap combined;
+
     int N;
     String msg;
     Languifier lan;

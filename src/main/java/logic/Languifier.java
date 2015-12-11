@@ -244,7 +244,7 @@ public class Languifier {
         }
         else
         {
-            /*ConcurrentHashMap c = new ConcurrentHashMap(combined);
+            ConcurrentHashMap c = new ConcurrentHashMap();
             for(int i = 2; i < 6; i++){
                 Future<Map> fut = executor.submit(new worker(i, msg, this));
                 try {
@@ -256,12 +256,14 @@ public class Languifier {
                     e.printStackTrace();
                 }
                 System.out.println("AQUI");
-            }*/
-            combined.putAll(retrieveNGramsfromDB(2, msg));
+                System.out.println("CCCC:" + c.size());
+                return new LinkedHashMap(c);
+            }
+           /* combined.putAll(retrieveNGramsfromDB(2, msg));
             combined.putAll(retrieveNGramsfromDB(3, msg));
             combined.putAll(retrieveNGramsfromDB(4, msg));
-            combined.putAll(retrieveNGramsfromDB(5, msg));
-
+            combined.putAll(retrieveNGramsfromDB(5, msg));*/
+            System.out.println(combined.size());
             return combined;
         }
 
